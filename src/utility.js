@@ -21,7 +21,7 @@ util.decryptAES = (enc, key)=> {
   dec += decipher.final()
   return dec
 }
-util.encryptPassword= (password, salt)=> {
+util.encryptPassword= (password, salt) => {
   enc = scrypt(password, salt, 16384, 8, 1, 32)
   return enc
 }
