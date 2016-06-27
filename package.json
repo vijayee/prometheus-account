@@ -1,0 +1,22 @@
+{
+  "name": "prometheus-account",
+  "version": "0.0.1",
+  "description": "account objects and creation methods for Prometheus",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Vijayee Kulkaa <vijayee.kulkaa@hushmail.com>",
+  "license": "GPL3",
+  "dependencies": {
+    "deasync": "^0.1.7",
+    "ipfs-ipld": "^2.0.0",
+    "ipld": "^0.6.0",
+    "libp2p-crypto": "^0.5.0",
+    "node-scrypt-js": "0.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
