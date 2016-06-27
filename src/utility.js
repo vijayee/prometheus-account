@@ -21,9 +21,24 @@ util.decryptAES = (enc, key)=> {
   dec += decipher.final()
   return dec
 }
-util.encryptPassword= (password, salt) => {
+util.encryptPassword = (password, salt) => {
   enc = scrypt(password, salt, 16384, 8, 1, 32)
   return enc
+}
+
+util.splitThrice = (buf) => {
+  let pad = buf.length % 3
+  let step = Math.floor(buf.length / 3)
+  let step1 = step
+  let step2 = (step * 2)
+  let step3 = (step * 3) + pad
+  let buf1 = new Buffer(step1)
+  let buf2 = new Buffer(step2)
+  let buf3 = new Buffer(step3)
+  buf.copy(buf1, 0, 0, step)
+  buf.copy(buf2, 0, step, step2)
+  buf.copy(buf3, 0, step2)
+  return { one: buf1, two: buf2, three: buf3 }
 }
 
 module.exports = util
